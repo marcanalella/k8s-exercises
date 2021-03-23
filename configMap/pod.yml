@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    name: myapp
+spec:
+  containers:
+    - name: myapp
+      image: nginx
+      env:
+        - name: BASE_URL
+          value: localhost
+
+        - name: MYSQL_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: eng-config
+              key: mysql.host
+      #7. the second configMap
+      envFrom:
+        - configMapRef:
+            name: eng-config-2
+      volumeMounts:
+        - name: config-volume
+          mountPath: /config
+  #9. Mount configMap as Volume
+  volumes:
+    - name: config-volume
+      configMap:
+        name: eng-config

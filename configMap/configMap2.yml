@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: eng-config-2
+  namespace: test
+data:
+  mysql.user: user
+  mysql.password: password

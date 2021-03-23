@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: eng-config
+  namespace: test
+data:
+  mysql.host: localhost
