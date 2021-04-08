@@ -1,0 +1,17 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: nonsense
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    metadata:
+      name: app
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - image: cron-app:latest
+              name: app
+              imagePullPolicy: Never
