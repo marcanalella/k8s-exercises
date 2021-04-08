@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: app
+spec:
+  completions: 5
+  parallelism: 2
+  template:
+    metadata:
+      name: app
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - image: app
+          name: app
+          imagePullPolicy: Never
