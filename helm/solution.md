@@ -6,4 +6,4 @@
 
 3. `` helm uninstall demo ``
 
-4. Change NOTES.txt and repeat 1-2-3 passage
+4. Change NOTES.txt (demo\templates\NOTES.txt) and repeat 1-2-3 passage
